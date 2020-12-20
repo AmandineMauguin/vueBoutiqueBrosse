@@ -8,27 +8,27 @@ const router = createRouter({
     history:createWebHistory(),
     routes:[
         {
-            path:"/",
+            path:"/amandine/",
             name:"Home",
             component:Home, 
         },
         {
-            path:"/shopping",
+            path:"/amandine/shopping",
             name:"Shop",
             component:Shop, 
         },
         {
-            path:"/contact",
+            path:"/amandine/contact",
             name:"Contact",
             component:Contact, 
             alias: "/contact-us",
         },
         {
-            path:"/us-contact",
+            path:"/amandine/us-contact",
             redirect:{name :"Contact"},
         },
         {
-            path: "/:catchAll(.*)",
+            path: "/amandine/:catchAll(.*)",
             component: NotFound,
         },
     ]
