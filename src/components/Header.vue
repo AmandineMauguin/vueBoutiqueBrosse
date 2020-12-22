@@ -1,6 +1,6 @@
 <template>
   <!-------------------- NAV BAR -------------------------->
-  <header> 
+  <header>
     <div id="navBar" class="w3-container w3-black">
       <nav class="w3-bar w3-twothird nav">
         <ul>
@@ -25,31 +25,24 @@
       <nav class="w3-bar w3-third nav">
         <ul>
           <li class="w3-bar-item w3-right">
-            <!--------------------COMPOSANT BOUTON PANIER -------------------------->
-            <!-- app -->
-            <button
-              id="CartBtn"
-              onclick="document.getElementById('britModal').style.display='block'"
-              class="w3-margin-right w3-button w3-2020-rose-tan w3-border-0 w3-hover-white w3-right"
-            >
-              <span>Panier</span>
-            </button>
-            <div id="britModal" class="w3-modal">
-              <div class="w3-modal-content w3-padding-64">
-                <div class="w3-container">
-                  <a
-                    href="#0"
-                    class="cd-popup-close img-replace w3-closebtn w3-xxxlarge"
-                    onclick="document.getElementById('britModal').style.display='none'"
-                    >&times;>Close</a
-                  >
-                  <Cart></Cart>
-                </div>
-              </div>
+            <div>
+              <a
+                class="w3-right w3-button w3-bar-item"
+                @click="reversePanier()"
+              >
+                ({{ cart.length }})Panier</a
+              >
             </div>
           </li>
         </ul>
       </nav>
+    </div>
+    <div
+      class="w3-animate-top w3-right w3-card"
+      style="margin: 0px 10px 10px 10px"
+      v-show="displayPanier"
+    >
+      <Cart></Cart>
     </div>
   </header>
   <!-------------------------------- FIN BAR NAV --------------------------->
@@ -63,13 +56,16 @@ export default {
   components: { Cart },
   data() {
     return {
-      cart: [],
-      totalPrix: 0,
-      prix: 0,
+      cart: this.$store.state.cart,
       title: "Mon Site kilétrokool",
+      displayPanier: false,
     };
   },
-  methods: {},
+  methods: {
+    reversePanier() {
+      this.displayPanier = !this.displayPanier;
+    },
+  },
   computed: {},
 };
 </script> 

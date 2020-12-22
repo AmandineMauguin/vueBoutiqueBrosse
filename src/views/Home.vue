@@ -7,7 +7,7 @@
       
     </div>
     <div class="w3-col m6">
-       <Carousel :liste="listeImg"></Carousel>
+       <Carousel  :listeImgCarousel="liste"></Carousel>
     </div>
   </div>
 </div>
@@ -27,12 +27,13 @@ export default {
   name: "Home",
   data() {
     return {
-
+      data: this.$store.state.name
     };
   },
   methods: {
   },
-  computed: {},
+  computed: {
+  },
 };
 </script> 
 

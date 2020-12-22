@@ -6,10 +6,10 @@
         <th>Produit</th>
         <th>Prix</th>
       </tr>
-      <!-- <tr v-for="(item, name, prix) in cart" :key="item">
-         <td>{{item.name}}</td>
-        <td>{{item.prix}}</td>
-      </tr> -->
+      <tr v-for="item in cart" :key="item">
+        <td>{{ item.name }}</td>
+        <td>{{ affichePrix(item.prix) }} $</td>
+      </tr>
       <tr>
         <td>La ristourne ?</td>
         <td>
@@ -18,19 +18,22 @@
             type="text"
             v-model="codeReduc"
           />
-          <p v-if="codeReduc === 'reduc'">- 2 ¥ ! IncroyaB !</p>
+          <p v-if="codeReduc === 'reduc'">- 2 $ ! IncroyaB !</p>
         </td>
       </tr>
       <tr>
         <th>Total</th>
-        <th>Le total</th>
+        <th v-if="codeReduc === 'reduc'">
+          {{ affichePrix(totalPrix) }} - {{ reduc }} =
+          {{ affichePrix(totalPrix) - 2 }} $
+        </th>
+        <th v-else>{{ affichePrix(totalPrix) }} $</th>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
-// import EventBus from "../eventbus";
 export default {
   name: "Cart",
 
@@ -38,22 +41,40 @@ export default {
     return {
       codeReduc: "",
       reduc: 2,
-      totalAvecRistourne: "",
-      cart: [],
+      cart: this.$store.state.cart,
       totalPrix: 0,
       title: "Mon Site kilétrokool",
     };
   },
-  methods: {},
+  methods: {
+    affichePrix(prix) {
+      let prixCalcul = prix.toString();
+      console.log(prix);
+      console.log(prixCalcul);
+      let prixAffichage = "";
+      for (let i = prixCalcul.length - 1; i >= 0; i--) {
+        prixAffichage += prixCalcul[i];
+        if (i - 1 >= 0) {
+          prixAffichage += prixCalcul[i - 1];
+          if (i - 2 >= 0) {
+            prixAffichage += prixCalcul[i - 2];
+          }
+        }
+        prixAffichage += " ";
+        i = i - 2;
+      }
+      return prixAffichage.split("").reverse().join("");
+    },
+  },
   computed: {},
-  mounted() {
-    // EventBus.$on("retrieveCart", function (cart) {});
+  beforeUpdate() {
+    this.totalPrix = 0;
+    for (let i = 0; i < this.cart.length; i++) {
+      this.totalPrix += this.cart[i].prix;
+    }
   },
 };
 </script> 
 
 <style scoped>
-table {
-  width: 100%;
-}
 </style>

@@ -1,6 +1,6 @@
 <template>
-<div class="w3-center ">
-  <form action="/action_page.php" target="_blank" >
+<div class="w3-center">
+  <form  target="_blank">
   <div class="w3-center">
     <p>
       <input
