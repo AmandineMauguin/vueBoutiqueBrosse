@@ -1,5 +1,6 @@
 <template>
-  <h1></h1>
+  <h1 class="w3-center">Oups, la page n'existe pas.</h1>
+  <h2 class="w3-center"> Faire demi-tour, dès que possible.</h2>
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 <template>
+<!------------------- CAROUSEL PRESENT SUR LA HOME PAGE ---------------------->
   <div class="container w3-center">
     <div class="mySlides w3-display-container">
       <button

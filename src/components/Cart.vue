@@ -1,5 +1,5 @@
 <template>
-  <h1></h1>
+<!------------------- PANIER ---------------------->
   <div class="container">
     <table class="w3-table w3-white">
       <tr>
@@ -22,6 +22,7 @@
         </td>
       </tr>
       <tr>
+        <!------------------- CALCUL DU PRIX AVEC LA REDUC  ---------------------->
         <th>Total</th>
         <th v-if="codeReduc === 'reduc'">
           {{ affichePrix(totalPrix) }} - {{ reduc }} =
@@ -43,10 +44,10 @@ export default {
       reduc: 2,
       cart: this.$store.state.cart,
       totalPrix: 0,
-      title: "Mon Site kilétrokool",
     };
   },
   methods: {
+    // METHODE D'AFFICHAGE DE PRIX PAR 3 (ex : 1000000 -> 1 000 000 ) c'est plus jolie...
     affichePrix(prix) {
       let prixCalcul = prix.toString();
       console.log(prix);
@@ -67,6 +68,7 @@ export default {
     },
   },
   computed: {},
+  // CALCUL DU PRIX TOTAL
   beforeUpdate() {
     this.totalPrix = 0;
     for (let i = 0; i < this.cart.length; i++) {

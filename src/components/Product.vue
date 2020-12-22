@@ -25,11 +25,6 @@ export default {
     };
   },
   methods: {
-    // addToCart(product) {
-    //   this.cart.push(product);
-    //   this.totalPrix += product.prix;
-    //   console.log("Total : ", this.totalPrix);
-    // },
   },
   computed: {},
 };

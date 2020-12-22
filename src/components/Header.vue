@@ -22,6 +22,8 @@
         </ul>
       </nav>
       <!-------------- FIN PREMIERE BAR NAV -------------->
+
+      <!------------------- NAV BAR PANIER ---------------------->
       <nav class="w3-bar w3-third nav">
         <ul>
           <li class="w3-bar-item w3-right">

@@ -8,15 +8,18 @@
           v-for="product in products"
           :key="product"
         >
-        
-        <div class="w3-card">
-          <Product :product="product"></Product>
-          <p>
-            <button @click="addToCart(product)" class="w3-button w3-light-grey w3-block" style="">
-              <i class="fa fa-shopping-cart"></i> Ajouter au panier !
-            </button>
-          </p>
-        </div>
+          <div class="w3-card">
+            <Product :product="product"></Product>
+            <p>
+              <button
+                @click="addToCart(product)"
+                class="w3-button w3-light-grey w3-block"
+                style=""
+              >
+                <i class="fa fa-shopping-cart"></i> Ajouter au panier !
+              </button>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +35,8 @@ export default {
     };
   },
   methods: {
+    // ENVOIE DE MON PRODUCT DANS MA LISTE CART SE TROUVANT DANS MON STORE
+    // Ainsi je peux facilement récupérer mes données Cart et les afficher dans mon component. 
     addToCart(product) {
       this.$store.state.cart.push(product);
     },

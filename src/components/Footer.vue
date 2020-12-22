@@ -15,10 +15,12 @@
         href="https://www.w3schools.com/w3css/default.asp"
         title="W3.CSS"
         target="_blank"
-        class="w3-hover-text-green"
+        class="w3-hover-text-grey"
         >w3.css</a
       >
+      & crée par Greenies
     </p>
+    
   </footer>
 </template>
 
